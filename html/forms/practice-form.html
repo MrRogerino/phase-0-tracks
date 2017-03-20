@@ -10,25 +10,25 @@
 	<div>
 		<label>Type of Tea:</label>
 		<select>
-			<option>Green Tea</option>
-			<option>Black Tea</option>
-			<option>Green Milk Tea</option>
-			<option>Black Milk Tea</option>
+			<option name="tea" value="greent">Green Tea</option>
+			<option name="tea" value="blackt">Black Tea</option>
+			<option name="tea" value="greenmt">Green Milk Tea</option>
+			<option name="tea" value="blackmt">Black Milk Tea</option>
 		</select>
 	</div>
 
 	<div>
 		<label>Toppings (Pick one):</label>
 		<form>
-			<input type="radio">Black Pearls</br>
-			<input type="radio">Litchi Jelly</br>
-			<input type="radio">Grass Jelly
+			<input type="radio" name="toppings" value="pearls">Black Pearls <br>
+			<input type="radio" name="toppings" value="litjelly" >Litchi Jelly<br>
+			<input type="radio" name="toppings" value="greenjelly">Grass Jelly
 		</form>
 	</div>
 
 	<div>
 		<p>Additional instructions:</p>
-		<textarea rows="5" col="40">
+		<textarea rows="5" cols="40">
 		</textarea>
 	</div>
 	</fieldset>
@@ -45,7 +45,7 @@
 	</fieldset>
 
 	<form action="success.html">
-	<button type="submit" value="Submit">Complete your order
+	<button type="submit" value="Submit">Complete your order</button>
 	</form>
 
 
