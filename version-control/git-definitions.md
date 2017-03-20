@@ -16,3 +16,5 @@ A commit officially publishes any chosen edits or changes to the local repositor
 
 * What is a merge conflict?
 A merge conflict occurs when two or more different changes are being made concurrently to the same file. This causes a conflict, since Git does not know which change is the "proper" code. 
+
+*Added a line for tagging a teacher
