@@ -14,3 +14,13 @@ font-size: .8em;
  .smaller {
  	font-size: 0.8em;
  }
+
+/* accidentally did #2 and #3 of release 2 together */
+
+ ul li:first-child {
+ 	color: blue;
+ }
+
+ h3:hover { 
+ 	background-color:yellow;
+  }
