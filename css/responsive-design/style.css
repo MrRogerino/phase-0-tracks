@@ -14,15 +14,16 @@ cite {
 #external-links {
     display: inline-block;
     vertical-align: top;
-    width:200px;
+    width: 20%;
 }
 main {
     display: inline-block;
     vertical-align: top;
-    width: 756px;
+    width: 70%;
+    margin-right: 5%;
 }
 body {
-    width: 960px;
+    max-width: 960px;
 }
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like, 
