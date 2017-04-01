@@ -10,3 +10,16 @@ puts "What color fur does the hamster have?"
 fur_color = gets.chomp
 print fur_color
 
+puts "Is this hamster a good candidate for adoption? (Y or N)"
+candidate = gets.chomp
+print candidate
+
+puts "How old is the hamster? If not sure, leave blank."
+answer = gets.chomp
+age = ""
+if answer == ""
+	age = nil
+else
+	age = answer
+end
+print age
