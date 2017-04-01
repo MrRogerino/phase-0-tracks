@@ -1,14 +1,14 @@
 puts "What is the hamster's name?"
 name = gets.chomp
-puts name
+#puts name
 
 puts "How loud is the hamster, from a scale of 1 to 10?"
 volume = gets.chomp
-puts volume.to_i
+#puts volume.to_i
 
 puts "What color fur does the hamster have?"
 fur_color = gets.chomp
-puts fur_color
+#puts fur_color
 
 puts "Is this hamster a good candidate for adoption? (Y or N)"
 candidate = gets.chomp
@@ -20,7 +20,7 @@ elsif candidate == "N" or candidate == "n"
 else
 	eligible = false
 end
-puts eligible
+#puts eligible
 
 
 puts "How old is the hamster? If not sure, leave blank."
@@ -32,3 +32,10 @@ else
 	age = answer.to_i
 end
 puts age
+
+
+if eligible == true
+	puts "This hamster is named #{name}. It is #{age} years old, and has #{fur_color} fur. It is a good candidate for adoption."
+else
+	puts "This hamster is named #{name}. It is #{age} years old, and has #{fur_color} fur. It is not a good candidate for adoption."
+end
