@@ -33,7 +33,7 @@ until employees_interviewed == employees.to_i
 	  	vamp_score +=2
 	  end
 	  
-	  puts honest
+	  
 	  
 	  if garlic == "Y" or garlic == "y"
 	  	allergic = false
@@ -41,22 +41,33 @@ until employees_interviewed == employees.to_i
 	  	allergic = true
 	  	vamp_score += 1
 	  end
-	  
-	  puts allergic
-	  
 	  if insurance == "Y" or insurance == "y"
 	  	immortal = false
 	  else
 	  	immortal = true
 	  	vamp_score +=1
 	  end
-	  
-	  puts immortal
-	  
+	  puts "Allergic: #{allergic}"
+	  puts "Honest: #{honest}"
+	  puts "Immortal: #{immortal}"
+
 	  if name == "Drake Cula" or name == "Tu Fang"
 	    vamp_score += 10 
 	  end
 	  
+	  #score check
+	  #puts "current score: #{vamp_score}"
+
+	  allergy = ""
+	  puts "Please list any allergies you have. Say 'done' when you are finished"
+	  while allergy != "done"
+	  	allergy = gets.chomp
+	  	if allergy == "sunshine"
+	  		vamp_score = 3
+	  		break
+	  		end
+	  	end
+
 	  puts "#{name}'s score is #{vamp_score}!"
 	  	
 =begin 	WRONG ORDER
