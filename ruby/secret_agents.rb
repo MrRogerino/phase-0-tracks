@@ -47,3 +47,9 @@ encrypt("abc")
 encrypt("zed") 
 decrypt("bcd")
 decrypt("afe")
+
+decrypt(encrypt("swordfish"))
+#The above method call works similarly to how parentheses work in math. The inside operation, encrypt("swordfish") is evaluated first.
+#Encrypt returns a string, which is then used by the decrypt method
+
+
