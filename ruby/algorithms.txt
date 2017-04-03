@@ -1,0 +1,14 @@
+Robot Elevator Algorithm
+
+Figure out which floor number you are on. 
+Figure out which floor number you want to go to.
+	- If the destination floor number is higher, call an elevator going up. 
+	- If the destination floor number is lower, call an elevator going down.
+	- If the destination floor is the same, don't board an elevator.
+Once elevator arrives, get in.
+For each button, look to see if it matches the destination floor number.
+	If it does match, press it.
+	Otherwise, check the next button.
+When elevator stops, check the floor number.
+	If the current floor matches destination floor, get out.
+	Otherwise, stay in the elevator.  
