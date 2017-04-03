@@ -15,3 +15,22 @@ end
 encrypt("abcd")
 encrypt("zywx")
 encrypt("hello world")
+
+#Psuedocode for decrypt
+#create alphabet string for comparison
+#for each letter in string, find appropriate index value in alphabet string
+#return the appropriate index value minus one and append it to the decrypted string
+
+def decrypt(str)
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
+	word = ""
+	counter = 0 
+	until counter == str.length
+		letter_number = alphabet.index(str[counter]) #matches each character with appropriate index value in alphabet
+		word += alphabet[letter_number - 1]
+		counter += 1
+	end
+	puts word
+end
+
+
