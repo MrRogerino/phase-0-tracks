@@ -6,9 +6,14 @@ def encrypt(str)
 	counter = 0
 	word = ""
 	until counter == str.length
-		word += str[counter].next
-		counter += 1
-	end
+		if str[counter] == "z" #edge case
+			word += "a"
+			counter +=1
+		else
+			word += str[counter].next
+			counter += 1
+
+		end
 	puts word
 end
 
@@ -33,4 +38,12 @@ def decrypt(str)
 	puts word
 end
 
+decrypt("bcd")
+decrypt("abcd")
+decrypt("helloworld")
 
+#Driver code
+encrypt("abc") 
+encrypt("zed") 
+decrypt("bcd")
+decrypt("afe")
