@@ -12,14 +12,15 @@ def encrypt(str)
 		else
 			word += str[counter].next
 			counter += 1
-
 		end
+	end
 	puts word
 end
 
-encrypt("abcd")
-encrypt("zywx")
-encrypt("hello world")
+
+#encrypt("abcd")
+#encrypt("zywx")
+#encrypt("hello world")
 
 #Psuedocode for decrypt
 #create alphabet string for comparison
@@ -38,18 +39,32 @@ def decrypt(str)
 	puts word
 end
 
-decrypt("bcd")
-decrypt("abcd")
-decrypt("helloworld")
+#decrypt("bcd")
+#decrypt("abcd")
+#decrypt("helloworld")
 
 #Driver code
-encrypt("abc") 
-encrypt("zed") 
-decrypt("bcd")
-decrypt("afe")
+#encrypt("abc") 
+#encrypt("zed") 
+#decrypt("bcd")
+#decrypt("afe")
 
-decrypt(encrypt("swordfish"))
+#decrypt(encrypt("swordfish"))
+
 #The above method call works similarly to how parentheses work in math. The inside operation, encrypt("swordfish") is evaluated first.
 #Encrypt returns a string, which is then used by the decrypt method
 
+#Interface 
+puts "Would you like to encrypt or decrypt a password?"
+answer = gets.chomp
 
+puts "What is the password?"
+password = gets.chomp
+
+if answer == "encrypt"
+	puts encrypt(password)
+elsif answer == "decrypt"
+	puts decrypt(password)
+else
+	puts "You're not a secret agent"
+end
