@@ -10,7 +10,7 @@
 "zom".insert(2, "o")
 # => “zoom”
 
-"enhance".center(15)
+"enhance".center(10)
 # => "    enhance    "
 
 "Stop! You’re under arrest!".upcase
