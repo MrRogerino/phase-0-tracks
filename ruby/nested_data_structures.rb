@@ -1,11 +1,11 @@
-nba = {
+nba = { #teams listed in order of best record to worst record, as of 4.10.2017
   western_conference: {
     divisions: {
       pacific: [
-        "Lakers",
-        "Clippers",
         "Warriors",
+        "Clippers",
         "Kings",
+        "Lakers",
         "Suns"
         ],
       northwest: [
@@ -50,3 +50,11 @@ nba = {
     },
   },
 }
+
+#sample driver code
+nba[:western_conference][:divisions][:northwest] #returns list of teams in the Northwest Division
+nba[:eastern_conference][:divisions][:southeast] #returns list of teams in the Southeast Division
+nba[:western_conference][:divisions][:pacific].reverse #returns Pacific Division teams in order of worst record to best
+nba[:western_conference][:divisions][:southwest].keep_if {|team| team == "Spurs" or team == "Rockets" or team == "Mavericks"} #returns all Texan teams
+nba[:eastern_conference][:divisions][:central][0] #returns LeBron James' team
+nba[:western_conference][:divisions][:pacific][3] #returns my favorite team
