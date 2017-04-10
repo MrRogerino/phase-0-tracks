@@ -55,5 +55,19 @@ end
 
 def new_alias(str)
 	scramble = name_swap(str)
-	return encrypt(scramble[0]) + " " + encrypt(scramble[1])
+	return encrypt(scramble[0]).capitalize + " " + encrypt(scramble[1]).capitalize
+end
+#future edit: use array loop to test for names with more than two words
+
+#Interface
+#Interface
+puts "Please enter a name to be encrypted, or type quit to finish"
+answer = ""
+while answer != "quit"
+  answer = gets.chomp
+  if answer == "quit"
+    break
+  else
+    puts "#{answer}'s alias is #{new_alias(answer)}"
+  end
 end
