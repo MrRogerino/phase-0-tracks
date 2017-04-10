@@ -54,11 +54,12 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
 
-def last_of_us(array1, array2)
-	return array1 | array2
+def last_of_us(joel, ellie)
+	return joel | ellie
 end
 
 p last_of_us(zombie_apocalypse_supplies, other_survivor_supplies)
+
 # Hash Drills
 
 extinct_animals = {
@@ -74,10 +75,24 @@ extinct_animals = {
 # 1. Iterate through extinct_animals hash, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
 # ----
+linked_list = []
+extinct_animals.each do |key,value|
+  linked_list << "#{key} - #{value}"
+end
+p linked_list.join(" * ")
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
 # ----
+extinct_hash = {}
+
+extinct_animals.each do |key, value|
+  if value < 2000
+    extinct_hash[key] = value
+  end
+end
+
+puts "#{extinct_hash}" 
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
