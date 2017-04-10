@@ -45,3 +45,13 @@ hash.delete_if { |letter, number| letter == "a" or letter == "c"}
 array.keep_if { |number| number < 35}
 
 hash.keep_if { |letter, number| number % 2 == 1}
+
+#another way to keep if certain condition is met
+array.select { |number| number > 35}
+
+hash.select { |letter, number| number.even?}
+
+#remove until certain condition is met
+array.take_while { |number| number < 45}
+
+hash.take_while { |letter, number| number < 5}
