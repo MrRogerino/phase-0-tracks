@@ -100,6 +100,10 @@ puts "#{extinct_hash}"
 # Do not use any special built-in methods.
 # ----
 
+extinct_animals.each do |key, value|
+	extinct_animals[key] = value - 3
+end
+
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Check if they're included in extinct_animals, one by one:
 # "Andean Cat"
@@ -107,6 +111,16 @@ puts "#{extinct_hash}"
 # "Saiga Antelope"
 # Do not use any special built-in methods.
 # ----
+check_species = ["Andean Cat", "Dodo", "Saiga Antelope"]
+counter = check_species.length
+
+extinct_animals.each do |key, value|
+  for i in 0...counter
+    if key == check_species[i]
+      puts "#{check_species[i]} is extinct"
+    end
+  end
+end
 
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
