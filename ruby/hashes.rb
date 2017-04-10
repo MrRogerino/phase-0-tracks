@@ -7,31 +7,45 @@ Ask user if they want to update any information of the customer
 Print hash
 =end
 
-customer_details = {}
+customer_profile = {}
 
 puts "Name of customer: "
-customer_details[:name] = gets.chomp 
+customer_profile[:name] = gets.chomp 
 
 puts "Age of customer: "
-customer_details[:age] = gets.chomp.to_i 
+customer_profile[:age] = gets.chomp.to_i 
 
 puts "Phone number of customer: "
-customer_details[:phone] = gets.chomp.to_i 
+customer_profile[:phone] = gets.chomp.to_i 
 
 puts "Is customer married? (y/n): "
 marriage = gets.chomp
 if marriage == "y"  
-	customer_details[:married] = TRUE
+	customer_profile[:married] = TRUE
 else 
-	customer_details[:married] = FALSE	
+	customer_profile[:married] = FALSE	
 end
 
 puts "Does customer have children (y/n): "
 children = gets.chomp
 if children == "y"
-  customer_details[:children] = TRUE
+  customer_profile[:children] = TRUE
 else
-  customer_details[:children] = FALSE
+  customer_profile[:children] = FALSE
 end
 
-p customer_details
+puts "This is the profile of the customer: #{customer_profile}"	
+
+puts "Would you like to edit any details of customer? Type none to skip"
+answer = gets.chomp
+if answer == "none"
+	puts "This is the profile of the customer: #{customer_profile}"
+else
+	answer = answer.to_sym
+	puts "Which detail would like to change?"
+	customer_profile[answer] = gets.chomp
+	puts "This is the updated profile of the customer: #{customer_profile}"
+end
+
+
+
