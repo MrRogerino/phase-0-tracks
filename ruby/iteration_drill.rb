@@ -37,6 +37,13 @@ end
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5. Do not use any special built-in methods.
 # ----
+def discard(array, int) #int represents inventory slots
+	if array.length <= int
+		return array
+	else 
+		return array[0..int-1]
+	end
+end
 
 # 5. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
@@ -47,6 +54,11 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
 
+def last_of_us(array1, array2)
+	return array1 | array2
+end
+
+p last_of_us(zombie_apocalypse_supplies, other_survivor_supplies)
 # Hash Drills
 
 extinct_animals = {
