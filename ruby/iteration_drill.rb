@@ -11,6 +11,26 @@ p zombie_apocalypse_supplies.join("*")
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
+def bubble_sort (array)
+  n = array.length
+
+  loop do
+    swapped = false
+
+    (n-1).times do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1]=array[i+1], array[i]
+        swapped = true
+      end
+    end
+
+    break if not swapped
+  end
+
+  array
+end
+
+bubble_sort(zombie_apocalypse_supplies)
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
