@@ -41,3 +41,30 @@ p fibonacci(1)
 p fibonacci(2)
 p fibonacci(10)
 p fibonacci(100)[99]
+
+#psuedocode for bubblesort
+#In an array of integers, compare each adjacent pair of integers. 
+#If the second integer has smaller value, swap the positions of the integers. 
+#Go through all possible pairs, swapping when necessary. 
+#After going through each pair once, start again with the left-most pair.
+#Scan through entire array again, swapping when necessary.
+#If one pass through the array causes no swaps to occur, end algorithm.
+
+def bubble_sort (array)
+  n = array.length
+
+  loop do
+    swapped = false
+
+    (n-1).times do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1]=array[i+1], array[i]
+        swapped = true
+      end
+    end
+
+    break if not swapped
+  end
+
+  array
+end
