@@ -36,35 +36,24 @@ def next_vowel(str)
   end
 end
 
-def alias(str)
+def encrypt(str)
   a = str.downcase
+  counter = 0
   codename = ""
-  counter = 0
-  vowels = "aeiou"
-  until counter == a.length
-  	if vowels.include?(a[counter]) == true
-  		codename += next_vowel(a[counter])
-  		counter +=1 
-  	else
-  		new_word += next_consonant(a[counter])
-  		counter +=1
-  	end
-  end
-end
-
-def something(str)
-  a = str.downcase
-  counter = 0
-  new_word = ""
   vowels = "aeiou"
   until counter == a.length
     if vowels.include?(a[counter]) == false
-      new_word += next_consonant(a[counter])
+      codename += next_consonant(a[counter])
       counter +=1 
     else 
-      new_word += next_vowel(a[counter])
+      codename += next_vowel(a[counter])
       counter +=1
     end
   end
-  return new_word
+  return codename
+end
+
+def new_alias(str)
+	scramble = name_swap(str)
+	return encrypt(scramble[0]) + " " + encrypt(scramble[1])
 end
