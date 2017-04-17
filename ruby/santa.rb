@@ -1,12 +1,12 @@
 class Santa
-  attr_reader :age :ethnicity
+  attr_reader :age, :ethnicity
   attr_accessor :gender 
 
   def initialize(gender, ethnicity)
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = rand(0..140)
     print "\n Initializing Santa instance... "
 
   end
@@ -47,6 +47,23 @@ class Santa
 =end
 
 end
+
+#release 4 
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+total_santas = 1
+santa_count = 0
+until santa_count == total_santas
+    santa = Santa.new(example_genders.sample, example_ethnicities.sample)
+    print "\n Age: #{santa.age}"
+    print "\n Ethnicity: #{santa.ethnicity}"
+    print "\n Gender: #{santa.gender}"
+    print "\n This is Santa number #{santa_count} of #{total_santas}"
+    santa_count +=1
+end
+
 
 #driver
 santas = []
