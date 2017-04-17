@@ -12,5 +12,9 @@ class TodoList
 			@todolist.delete(item)
 		end
 	end
+
+	def get_item(index)
+		@todolist[index]
+	end
 end
 
