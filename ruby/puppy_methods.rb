@@ -1,7 +1,11 @@
 class Puppy
 
+  def initialize()
+    print "\n Initalizing new Puppy instance..."
+  end	
+
   def fetch(toy)
-    puts "I brought back the #{toy}!"
+    puts "\n I brought back the #{toy}!"
     toy
   end
 
