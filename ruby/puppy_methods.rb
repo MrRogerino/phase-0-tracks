@@ -52,6 +52,19 @@ class Baller
     
 end
 
+counter = 0
+array = []
+
+until counter == 50
+  array.push(kobe = Baller.new)
+  counter += 1
+end
+
+array.each do |baller|
+  baller.practice(200)
+  baller.mvp()
+end
+
 #driver 
 kobe = Baller.new 
 kobe.practice(500)
