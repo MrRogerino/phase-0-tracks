@@ -7,5 +7,10 @@ class TodoList
 		@todolist << item
 	end
 
+	def delete_item(item)
+		if @todolist.include?(item)
+			@todolist.delete(item)
+		end
+	end
 end
 
