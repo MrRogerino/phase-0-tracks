@@ -1,4 +1,7 @@
 class Santa
+  attr_reader :age :ethnicity
+  attr_accessor :gender 
+
   def initialize(gender, ethnicity)
     @gender = gender
     @ethnicity = ethnicity
@@ -29,6 +32,7 @@ class Santa
     end
   end
 
+=begin 
   def gender(new_gender)
     @gender = new_gender
   end
@@ -40,6 +44,7 @@ class Santa
   def ethnicity
     print "\n #{@ethnicity}"
   end
+=end
 
 end
 
