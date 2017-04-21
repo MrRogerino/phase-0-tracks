@@ -4,12 +4,15 @@ Take a string as an argument
   For each letter, add the index[counter] to a new string
   Print new string
 */
+condition = 3 > 2
 function reverse(string) {
   reverse_string = ""
   for (var i = string.length; i > 0; i--) {
     reverse_string += string[i - 1];
   }
-  console.log(reverse_string);
+  if (condition) { 
+    console.log(reverse_string);
+  }
 }
-
-reverse("hello")
+//driver 
+reverse("hello") 
