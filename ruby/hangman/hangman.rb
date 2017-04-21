@@ -1,5 +1,5 @@
 class Hangman
-  attr_reader :answer_array,:guesses_allowed, :game_over
+  attr_reader :answer_array,:guesses_allowed, :game_over, :word
   attr_accessor :guess_array
 
   def initialize(word)
@@ -8,20 +8,29 @@ class Hangman
     word.length.times do
       @guess_array << "_"
     end
-    @guesses_allowed = word.length + 3
+    @guesses_allowed = word.length - 1
     @game_over = false
+    @repeat_array = []
   end
 
   def check(letter)
+    @repeat_array.push(letter)
     if @answer_array.include?(letter)
       match = @answer_array.each_index.select{|i| @answer_array[i] == letter}
       match.each {|a| @guess_array[a] = letter}
+      p "There are #{match.length} #{letter}'s"
       p @guess_array
+      @guesses_allowed -= 1
+    else
+      p "There are no #{letter}'s"
+      p @guess_array 
+      @guesses_allowed -= 1 
     end
+    
     if @answer_array == @guess_array
       @game_over = true
     end
-    @guesses_allowed -= 1 
+    
   end
 end
 
@@ -37,7 +46,8 @@ until hangman.game_over
   guess = gets.chomp
   hangman.check(guess)
   if hangman.guesses_allowed == 0
-    puts "You have no more guesses! Try harder next time!"
+    puts "You have no more guesses! The correct word was #{hangman.answer_array.join}."
+    puts "I thought you were good at this!"
     break
   end
 end
