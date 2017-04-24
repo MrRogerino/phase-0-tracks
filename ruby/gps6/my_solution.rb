@@ -19,8 +19,9 @@ class VirusPredictor
 
   #summarizes the predicted death and speed of spread methods
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    density 
+    predicted_deaths
+    speed_of_spread
   end
 
   private
@@ -108,3 +109,13 @@ end
 
 #=======================================================================
 # Reflection Section
+
+#The first way is to declare a key, and then assign that key a value using =>. The second is to declare a key, then assign it a value using a colon.
+
+#Require_relative allows you to call a file from the directory that the program is in- in this case, the gps6 folder. Require calls a module that is built into Ruby, like Math.
+
+#You can use Hash.each do {|key, value| some method}. You can also use the #map method, which allows you to change the values of a hash. 
+
+#The two methods inside virus_effects used two of the same variables- @state and @population_density. 
+
+#I solified how to iterate over hashes, especially accessing the relevant info from inside nested hashes.
