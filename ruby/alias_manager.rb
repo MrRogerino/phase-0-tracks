@@ -4,7 +4,8 @@ def name_swap(str)
   new_name = str.split(' ').reverse
   return new_name
 end
-
+#old refactored code - - - -
+=begin 
 #consonant and vowel scrambler
 def next_consonant(str)
   letter = str.downcase
@@ -20,43 +21,41 @@ def next_consonant(str)
     return letter
   end
 end
-
-def next_vowel(str)
-  letter = str.downcase
-  vowels = "aeiou"
-  counter = 0
-  until letter == vowels[counter]
-    counter +=1
-  end
-  letter = vowels[counter + 1]
-  if letter == nil #edge case
-    return "a"
+=end
+def next_letter(letter)
+  vowel_cipher = {'a' => 'e',  'e' => 'i', 'i' => 'o', 'o' => 'u', 'u' => 'a'}
+  consonant_edge_cases = ['d','h','n','t']
+  if vowel_cipher.has_key?(letter)
+    letter = vowel_cipher[letter]
+  elsif consonant_edge_cases.include?(letter)
+    letter = letter.next.next
+  elsif letter == 'z'
+    letter = 'b'
   else
-    return letter
+    letter = letter.next 
   end
+  return letter
 end
 
-def encrypt(str)
-  a = str.downcase
-  counter = 0
-  codename = ""
-  vowels = "aeiou"
-  until counter == a.length
-    if vowels.include?(a[counter]) == false
-      codename += next_consonant(a[counter])
-      counter +=1 
-    else 
-      codename += next_vowel(a[counter])
-      counter +=1
-    end
+def better_encrypt(name)
+  name = name.downcase
+  new_name = ""
+  name.each_char do |letter|
+    new_name += next_letter(letter)
   end
-  return codename
+  return new_name
 end
 
-def new_alias(str)
-	scramble = name_swap(str)
-	return encrypt(scramble[0]).capitalize + " " + encrypt(scramble[1]).capitalize
+better_encrypt("hahaha")
+better_encrypt("Linda")
+
+def alias_generator(name)
+  scramble = name_swap(name)
+  alien = better_encrypt(scramble[0]).capitalize + " " + better_encrypt(scramble[1]).capitalize
+  return alien
 end
+
+alias_generator("James Harden")
 #future edit: use array loop to test for names with more than two words
 
 #Interface
