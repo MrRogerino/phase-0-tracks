@@ -1,11 +1,11 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself].
+# We spent [3] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# Require_relative allows you to call a file from the directory that the program is in- in this case, the gps6 folder. Require calls a module that is built into Ruby, like Math.
+
 require_relative 'state_data'
 
 class VirusPredictor
