@@ -25,16 +25,32 @@ class VirusPredictor
 
   private
   
-  #given a state, its population density, and population, prints a statement saying how many people will die
-  def predicted_deaths(population_density, population, state)
-    # predicted deaths is solely based on population density
+  #assigns a scale from 1 to 5 based on population density- 1 being the most population dense, 5 being the least
+  def density
+    density_scale = 0
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      @density_scale = 1
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      @density_scale = 2
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      @density_scale = 3
     elsif @population_density >= 50
+      @density_scale = 4
+    else
+      @density_scale = 5
+    end
+  end
+
+  #given a state, its population density, and population, prints a statement saying how many people will die
+  def predicted_deaths
+    # predicted deaths is solely based on population density
+    if @density_scale == 1
+      number_of_deaths = (@population * 0.4).floor
+    elsif @density_scale == 2
+      number_of_deaths = (@population * 0.3).floor
+    elsif @density_scale == 3
+      number_of_deaths = (@population * 0.2).floor
+    elsif @density_scale == 4
       number_of_deaths = (@population * 0.1).floor
     else
       number_of_deaths = (@population * 0.05).floor
@@ -45,18 +61,18 @@ class VirusPredictor
   end
 
   #given a state and its population density, print a statement saying how long it will take to spread across the state
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
 
-    if @population_density >= 200
+    if @density_scale == 1
       speed += 0.5
-    elsif @population_density >= 150
+    elsif @density_scale == 2
       speed += 1
-    elsif @population_density >= 100
+    elsif @density_scale == 3
       speed += 1.5
-    elsif @population_density >= 50
+    elsif @density_scale == 4
       speed += 2
     else
       speed += 2.5
