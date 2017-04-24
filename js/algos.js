@@ -1,8 +1,9 @@
 /*Release 0 Psuedocode
 Define a function that takes in an array.
-  For each element in the array, store the length of the element in a new array
-    From the new array, take the index of the highest value(s)
-  Return the element that corresponds to those index
+  By default, set a variable, longest string, to first element in array. 
+    If the next element is longer than the longest stringe variable, store that string as the new longest string
+    Loop through entire array, replacing longest string whenever applicable
+  Return the longest string
 */
 function print(array) {
   var something = 0;
