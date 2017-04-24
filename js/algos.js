@@ -33,4 +33,11 @@ function print(array) {
   console.log(array[maxIndex]);
 }
 */
+/*Release 1 Psuedocode
+Define a function that takes in two objects
+  For all keys of one object, check to see if they're equivalent to any keys of the second object
+    For any key that matches, compare each key's value
+      If both values are the same, return true
+  Else, return false
+*/
 
