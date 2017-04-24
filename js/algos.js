@@ -5,6 +5,20 @@ Define a function that takes in an array.
     Loop through entire array, replacing longest string whenever applicable
   Return the longest string
 */
+function longest_string(array_of_strings) {
+  var longest_string = array_of_strings[0]
+  for (var i = 0; i < array_of_strings.length; i++)
+    if (array_of_strings[index].length > longest_string.length) {
+      longest_string = array_of_strings[index];
+    }
+  return longest_string;
+}
+//driver code
+some_array = ["Hello", "Is it me", "you're looking for?"]
+longest_string(some_array)
+some_other_array = ["Small town", "Girl", "Living in", "A lonely world"]
+longest_string(some_other_array)
+/* old, non-functioning algorithm
 function print(array) {
   var something = 0;
   var maxIndex = 0; 
@@ -18,5 +32,5 @@ function print(array) {
   }
   console.log(array[maxIndex]);
 }
-
+*/
 
