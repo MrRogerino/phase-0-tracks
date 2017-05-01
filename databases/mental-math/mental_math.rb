@@ -46,6 +46,12 @@ def quick_play(db)
   5.times do
     create_problem(db, "+", 1)
   end
+
+  puts "Would you like to take another test? (y/n)"
+  answer = gets.chomp
+  if answer == "y"
+    menu
+  end
 end
 
 def custom_test(db)
