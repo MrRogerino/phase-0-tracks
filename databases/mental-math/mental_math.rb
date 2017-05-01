@@ -44,7 +44,40 @@ end
 
 def quick_play(db)
   5.times do
-    create_problem(db, "+", 1) 
+    create_problem(db, "+", 1)
+  end
+end
+
+def custom_test(db)
+  puts "Would you like to practice addition (type 1) or subtraction (type 2)"
+  mode = gets.chomp
+  case mode
+  when "1"
+    operand = "+"
+    puts "Loading Addition Problems..."
+  when "2"
+    operand = "-"
+    puts "Loading subtraction problems..."
+  else 
+    puts "That's not a valid answer (please answer 1 or 2)"
+    settings 
+  end
+  
+  puts "Set a difficulty from 1-10, 10 being the hardest"
+  difficulty = gets.chomp.to_i
+  
+  puts "How many problems would you like to do?"
+  count = gets.chomp.to_i
+  count.times do 
+    create_problem(operand, difficulty)
+  end
+  
+  puts "Would you like to take another test? (y/n)"
+  answer = gets.chomp
+  if answer == "y"
+    menu
+  end
+end
 
 def create_problem(db, operand, difficulty)
   max = difficulty * 10 
