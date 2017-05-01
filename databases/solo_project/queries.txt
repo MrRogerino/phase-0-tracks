@@ -1,0 +1,116 @@
+1. Display the information in one table (either table is fine).
+  query: SELECT * FROM leagues
+  output: 
+    1|La Liga|Spain|16
+    2|Serie A|Italy|12
+    3|Premier League|England|12
+    4|Bundesliga|Germany|7
+    5|Eredivisie|Netherlands|6
+    6|Primeira Liga|Portugal|4
+    7|Ligue 1|France|1
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+  query: SELECT * FROM champions WHERE titles_won >= 4
+  output: 
+    1|Real Madrid|11|2016|1
+    2|AC Milan|7|2007|2
+    3|Barcelona|5|2015|1
+    5|Liverpool|5|2005|3
+    8|Bayern Munich|5|2013|4
+    9|Ajax|4|1995|5
+
+3. Display the information in both tables using one query.
+  query: SELECT * FROM champions, leagues WHERE champions.league_id = leagues.id
+  output: 
+    1|Real Madrid|11|2016|1|1|La Liga|Spain|16
+    2|AC Milan|7|2007|2|2|Serie A|Italy|12
+    3|Barcelona|5|2015|1|1|La Liga|Spain|16
+    4|Juventus|2|1996|2|2|Serie A|Italy|12
+    5|Liverpool|5|2005|3|3|Premier League|England|12
+    6|Manchester United|3|2008|3|3|Premier League|England|12
+    7|Chelsea|1|2012|3|3|Premier League|England|12
+    8|Bayern Munich|5|2013|4|4|Bundesliga|Germany|7
+    9|Ajax|4|1995|5|5|Eredivisie|Netherlands|6
+    10|Benfica|2|1962|6|6|Primeira Liga|Portugal|4
+    11|Borussia Dortmund|1|1997|4|4|Bundesliga|Germany|7
+    12|Porto|2|2004|6|6|Primeira Liga|Portugal|4
+    13|Marseille|1|1993|7|7|Ligue 1|France|1
+    14|Feyenoord|1|1970|5|5|Eredivisie|Netherlands|6
+    15|Inter|3|2010|2|2|Serie A|Italy|12
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+  query: SELECT champions.name, champions.titles_won, leagues.name, leagues.titles_won FROM champions JOIN leagues ON champions.league_id = leagues.id
+  output: 
+    Real Madrid|11|La Liga|16
+    AC Milan|7|Serie A|12
+    Barcelona|5|La Liga|16
+    Juventus|2|Serie A|12
+    Liverpool|5|Premier League|12
+    Manchester United|3|Premier League|12
+    Chelsea|1|Premier League|12
+    Bayern Munich|5|Bundesliga|7
+    Ajax|4|Eredivisie|6
+    Benfica|2|Primeira Liga|4
+    Borussia Dortmund|1|Bundesliga|7
+    Porto|2|Primeira Liga|4
+    Marseille|1|Ligue 1|1
+    Feyenoord|1|Eredivisie|6
+    Inter|3|Serie A|12
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+  query: DELETE FROM champions WHERE titles_won < 2
+  output: none (but here's the updated teams list anyways)
+    1|Real Madrid|11|2016|1
+    2|AC Milan|7|2007|2
+    3|Barcelona|5|2015|1
+    4|Juventus|2|1996|2
+    5|Liverpool|5|2005|3
+    6|Manchester United|3|2008|3
+    8|Bayern Munich|5|2013|4
+    9|Ajax|4|1995|5
+    10|Benfica|2|1962|6
+    12|Porto|2|2004|6
+    15|Inter|3|2010|2
+
+ 6. Sample Joins
+  query: SELECT champions.name, leagues.country FROM champions LEFT JOIN leagues ON champions.league_id = leagues.id
+  output: 
+    Real Madrid|Spain
+    AC Milan|Italy
+    Barcelona|Spain
+    Juventus|Italy
+    Liverpool|England
+    Manchester United|England
+    Bayern Munich|Germany
+    Ajax|Netherlands
+    Benfica|Portugal
+    Porto|Portugal
+    Inter|Italy
+
+  query: SELECT champions.name, leagues.country FROM champions LEFT JOIN leagues ON champions.league_id = leagues.titles_won
+  output: 
+    Real Madrid|France
+    AC Milan|
+    Barcelona|France
+    Juventus|
+    Liverpool|
+    Manchester United|
+    Bayern Munich|Portugal
+    Ajax|
+    Benfica|Netherlands
+    Porto|Netherlands
+    Inter|
+
+  query: SELECT champions.name, leagues.name FROM champions, leagues ON champions.league_id = leagues.id
+  output:
+    Real Madrid|La Liga
+    AC Milan|Serie A
+    Barcelona|La Liga
+    Juventus|Serie A
+    Liverpool|Premier League
+    Manchester United|Premier League
+    Bayern Munich|Bundesliga
+    Ajax|Eredivisie
+    Benfica|Primeira Liga
+    Porto|Primeira Liga
+    Inter|Serie A
