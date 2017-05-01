@@ -29,8 +29,9 @@ def menu(db)
 
   puts "1. Quick Test (5 addition problems, easy difficulty)"
   puts "2. Take Custom Test (using custom settings)"
-  puts "3. End"
-  
+  puts "3. Review missed questions"
+  puts "4. End"
+
   answer = gets.chomp
   case answer 
   when "1"
@@ -38,6 +39,8 @@ def menu(db)
   when "2"
     custom_test(db)
   when "3"
+    missed_questions(db)
+  when "4"
     goodbye(db)
   end
 end
@@ -89,6 +92,20 @@ def custom_test(db)
   end
 end
 
+def missed_questions(db)
+  misses = db.execute(SELECT * from problems WHERE correct = "false")
+  misses.each do |question|
+    puts "#{misses['first_num']} #{misses['operand']} #{misses['second_num']} is #{misses['right_answer']}. Your answer was #{misses['user_answer']}"
+  end
+  puts "Would you like to take another test? (y/n)"
+  answer = gets.chomp
+  if answer == "y"
+    menu
+  else
+    goodbye(db)
+  end
+end
+
 def goodbye(db)
   puts "Thanks for playing!"
 end
@@ -117,5 +134,4 @@ def create_problem(db, operand, difficulty)
 end
 
 #driver
-start_test
-create_problem(db, "+", 3)
+
