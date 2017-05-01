@@ -18,10 +18,11 @@ def start_test
 
   db.execute(create_table_cmd)
   p "Welcome to Mental Math 101!"
-  menu
+
+  menu(db)
 end
 
-def menu
+def menu(db)
   puts "Welcome to Mental Math 101!"
   puts "Today, we're going to take a quiz to strengthen your mental math skills!"
   puts "Please select from the following options"
@@ -29,17 +30,19 @@ def menu
   puts "1. Quick Test (5 addition problems, easy difficulty)"
   puts "2. Take Custom Test (using custom settings)"
   puts "3. End"
+  
   answer = gets.chomp
-
   case answer 
   when "1"
-    quick_play
+    5.times do 
+      create_problem(db, "+", 1)
+    end
   when "2"
     custom_test
   when "3"
     puts "Thanks for playing!"
   end
-end  
+end 
 
 def create_problem(db, operand, difficulty)
   max = difficulty * 10 
@@ -61,8 +64,9 @@ def create_problem(db, operand, difficulty)
     puts "Incorrect! The answer was #{right_answer}!"
     correct = false
   end
-  db.execute("INSERT INTO problems (first_num, second_num, operand, right_answer, user_answer) VALUES [?,?,?,?,?,?]", [first_num, second_num, operand, right_answer, user_answer, correct])
+  db.execute("INSERT INTO problems (first_num, second_num, operand, right_answer, user_answer, correct) VALUES [?,?,?,?,?,?]", [first_num, second_num, operand, right_answer, user_answer, correct])
 end
 
 #driver
 start_test
+create_problem(db, "+", 3)
