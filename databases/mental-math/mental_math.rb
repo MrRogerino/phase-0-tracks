@@ -1,6 +1,7 @@
 require 'sqlite3'
 
 
+def start_test
   db = SQLite3::Database.new("problems.db")
   db.results_as_hash = true
   create_table_cmd = <<-SQL 
@@ -8,7 +9,7 @@ require 'sqlite3'
       id INTEGER PRIMARY KEY,
       first_num INT,
       second_num INT,
-      operand CHAR(1),
+      operand CHAR(3),
       right_answer INT,
       user_answer INT,
       correct BOOLEAN
@@ -17,7 +18,28 @@ require 'sqlite3'
 
   db.execute(create_table_cmd)
   p "Welcome to Mental Math 101!"
+  menu
+end
 
+def menu
+  puts "Welcome to Mental Math 101!"
+  puts "Today, we're going to take a quiz to strengthen your mental math skills!"
+  puts "Please select from the following options"
+
+  puts "1. Quick Test (5 addition problems, easy difficulty)"
+  puts "2. Take Custom Test (using custom settings)"
+  puts "3. End"
+  answer = gets.chomp
+
+  case answer 
+  when "1"
+    quick_play
+  when "2"
+    custom_test
+  when "3"
+    puts "Thanks for playing!"
+  end
+end  
 
 def create_problem(db, operand, difficulty)
   max = difficulty * 10 
@@ -40,7 +62,7 @@ def create_problem(db, operand, difficulty)
     correct = false
   end
   db.execute("INSERT INTO problems (first_num, second_num, operand, right_answer, user_answer) VALUES [?,?,?,?,?,?]", [first_num, second_num, operand, right_answer, user_answer, correct])
-end 
+end
 
 #driver
-create_problem(db, "+", 2)
+start_test
