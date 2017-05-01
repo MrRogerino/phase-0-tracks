@@ -49,14 +49,7 @@ def quick_play(db)
   5.times do
     create_problem(db, "+", 1)
   end
-
-  puts "Would you like to take another test? (y/n)"
-  answer = gets.chomp
-  if answer == "y"
-    menu
-  else 
-    goodbye(db)
-  end
+  menu_return(db)
 end
 
 def custom_test(db)
@@ -82,14 +75,7 @@ def custom_test(db)
   count.times do 
     create_problem(operand, difficulty)
   end
-  
-  puts "Would you like to take another test? (y/n)"
-  answer = gets.chomp
-  if answer == "y"
-    menu
-  else
-    goodbye(db)
-  end
+  menu_return(db)
 end
 
 def missed_questions(db)
@@ -97,6 +83,10 @@ def missed_questions(db)
   misses.each do |question|
     puts "#{misses['first_num']} #{misses['operand']} #{misses['second_num']} is #{misses['right_answer']}. Your answer was #{misses['user_answer']}"
   end
+  menu_return(db)
+end
+
+def menu_return(db)
   puts "Would you like to take another test? (y/n)"
   answer = gets.chomp
   if answer == "y"
@@ -133,5 +123,5 @@ def create_problem(db, operand, difficulty)
   db.execute("INSERT INTO problems (first_num, second_num, operand, right_answer, user_answer, correct) VALUES [?,?,?,?,?,?]", [first_num, second_num, operand, right_answer, user_answer, correct])
 end
 
-#driver
+
 
