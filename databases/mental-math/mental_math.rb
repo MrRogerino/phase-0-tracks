@@ -1,6 +1,5 @@
 require 'sqlite3'
 
-
 def start_test
   db = SQLite3::Database.new("problems.db")
   db.results_as_hash = true
@@ -17,16 +16,14 @@ def start_test
   SQL
 
   db.execute(create_table_cmd)
-  p "Welcome to Mental Math 101!"
-
+  puts "Welcome to Mental Math 101!"
   menu(db)
 end
 
 def menu(db)
-  puts "Welcome to Mental Math 101!"
   puts "Today, we're going to take a quiz to strengthen your mental math skills!"
   puts "Please select from the following options"
-
+  puts "-"*30
   puts "1. Quick Test (5 addition problems, easy difficulty)"
   puts "2. Take Custom Test (using custom settings)"
   puts "3. Review missed questions"
@@ -46,7 +43,7 @@ def menu(db)
 end
 
 def quick_play(db)
-  5.times do
+  5.times do |problem|
     create_problem(db, "+", 1)
   end
   menu_return(db)
@@ -79,7 +76,7 @@ def custom_test(db)
 end
 
 def missed_questions(db)
-  misses = db.execute(SELECT * from problems WHERE correct = "false")
+  misses = db.execute("SELECT * from problems WHERE correct='false'")
   misses.each do |question|
     puts "#{misses['first_num']} #{misses['operand']} #{misses['second_num']} is #{misses['right_answer']}. Your answer was #{misses['user_answer']}"
   end
@@ -120,8 +117,8 @@ def create_problem(db, operand, difficulty)
     puts "Incorrect! The answer was #{right_answer}!"
     correct = false
   end
-  db.execute("INSERT INTO problems (first_num, second_num, operand, right_answer, user_answer, correct) VALUES [?,?,?,?,?,?]", [first_num, second_num, operand, right_answer, user_answer, correct])
+  db.execute("INSERT INTO problems (first_num, second_num, operand, right_answer, user_answer, correct) VALUES (?,?,?,?,?,?)", [first_num, second_num, operand, right_answer, user_answer, correct])
 end
 
-
-
+#driver
+start_test
