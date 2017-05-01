@@ -38,7 +38,7 @@ def menu(db)
   when "2"
     custom_test(db)
   when "3"
-    puts "Thanks for playing!"
+    goodbye(db)
   end
 end
 
@@ -51,6 +51,8 @@ def quick_play(db)
   answer = gets.chomp
   if answer == "y"
     menu
+  else 
+    goodbye(db)
   end
 end
 
@@ -82,7 +84,13 @@ def custom_test(db)
   answer = gets.chomp
   if answer == "y"
     menu
+  else
+    goodbye(db)
   end
+end
+
+def goodbye(db)
+  puts "Thanks for playing!"
 end
 
 def create_problem(db, operand, difficulty)
