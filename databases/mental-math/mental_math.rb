@@ -117,8 +117,15 @@ def create_problem(db, operand, difficulty)
     puts "Incorrect! The answer was #{right_answer}!"
     correct = false
   end
-  db.execute("INSERT INTO problems (first_num, second_num, operand, right_answer, user_answer, correct) VALUES (?,?,?,?,?,?)", [first_num, second_num, operand, right_answer, user_answer, correct])
+  db.execute("INSERT INTO problems (first_num, second_num, operand, right_answer, user_answer, correct) VALUES (?,?,?,?,?,?", [first_num, second_num, operand, right_answer, user_answer, correct])
 end
 
 #driver
 start_test
+
+=begin
+Reflections / Things to Add / Research
+1. Implementing multiplication and division
+2. Returning a tally of all questions with correct="true" out of total questions
+3. Randomizing the operand, give a test using multiple operands
+
