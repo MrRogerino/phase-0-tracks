@@ -34,15 +34,17 @@ def menu(db)
   answer = gets.chomp
   case answer 
   when "1"
-    5.times do 
-      create_problem(db, "+", 1)
-    end
+    quick_play(db)
   when "2"
-    custom_test
+    custom_test(db)
   when "3"
     puts "Thanks for playing!"
   end
-end 
+end
+
+def quick_play(db)
+  5.times do
+    create_problem(db, "+", 1) 
 
 def create_problem(db, operand, difficulty)
   max = difficulty * 10 
